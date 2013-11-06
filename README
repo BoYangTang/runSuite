@@ -1,0 +1,26 @@
+runSuite - Automated Batch Program Testing
+
+Usage: ./runSuite suiteFile programPath
+
+Tests are specified as pairs of input (.in) and expected output (.out) files.
+
+suiteFile is the file containing test pair name stems.
+
+programPath is the absolute path to the executable program being tested.
+
+Example:
+  
+  filename "tests"
+  contents:
+    test1
+    test2
+    test3
+
+  program "print"
+  path: ./print
+  
+  command: ./runSuite tests ./print
+  
+  runs "print" three times, using test1.in, test2.in, test3.in file input and
+  compares the output to expected output from test1.out, test2.out, test3.out
+  respectively.

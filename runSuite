@@ -37,8 +37,10 @@ file_check ${2}
 dir=$(pwd)
 
 for file in $(cat ${1}); do
+
   in=${dir}/${file}.in
   out=${dir}/${file}.out
+  
   file_check ${in}
   file_check ${out}
 
@@ -55,8 +57,10 @@ for file in $(cat ${1}); do
     echo "Actual:"
     echo "${output}"
   fi
+  
   if [ ${fail} -ne 0 ]; then
     echo "Error:"
     ${2} < ${in} > /dev/null
   fi
+  
 done
